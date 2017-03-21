@@ -1,4 +1,4 @@
-package com.example;
+package com.example.lots;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class LotController {
     private LotService lotService;
 
     @RequestMapping("/lots")
-    public List<Lot> getAllTopics(){
+    public List<Lot> getAllLots(){
         return lotService.getAllLots();
     }
 
