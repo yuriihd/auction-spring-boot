@@ -13,12 +13,19 @@ import java.util.List;
 public class LotService {
     @Autowired
     private LotRepository lotRepository;
+/*public List<Course> getAllCourses(String topicId){
 
+        List<Course> courses = new ArrayList<>();
+        courseRepository.findByTopicId(topicId)
+                .forEach(courses::add);
+        return courses;
 
-    public List<Lot> getAllLots(){
+    }*/
+
+    public List<Lot> getAllLots(String username){
 
         List<Lot> lots = new ArrayList<>();
-        lotRepository.findAll()
+        lotRepository.findByUserUsername(username)
                 .forEach(lots::add);
         return lots;
 
@@ -35,7 +42,7 @@ public class LotService {
         lotRepository.save(lot);
     }
 
-    public void updateLot(String id, Lot lot) {
+    public void updateLot(Lot lot) {
         lotRepository.save(lot );
     }
 
