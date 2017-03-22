@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface LotRepository extends CrudRepository<Lot, String> {
     public List<Lot> findBySellerUsername (String username);
+    public List<Lot> findByBuyerUsername (String username);
 }

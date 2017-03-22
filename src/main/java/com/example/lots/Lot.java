@@ -18,11 +18,15 @@ public class Lot {
     private String id;
     private String name;
     private String description;
-    private double startPrice;
+    private double price;
     private String endDate;
 
     @ManyToOne
     private User seller;
+
+
+    @ManyToOne
+    private User buyer;
 
     public String getId() {
         return id;
@@ -49,12 +53,12 @@ public class Lot {
         this.description = description;
     }
 
-    public double getStartPrice() {
-        return startPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setStartPrice(double startPrice) {
-        this.startPrice = startPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public String getEndDate() {
@@ -73,16 +77,22 @@ public class Lot {
         this.seller = user;
     }
 
-    public Lot(String id, String name, String description, double startPrice, String endDate, String username) {
+    public User getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(User buyer) {
+        this.buyer = buyer;
+    }
+
+    public Lot(String id, String name, String description, double price, String endDate,  String sellerName) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.startPrice = startPrice;
+        this.price = price;
         this.endDate = endDate;
-        this.seller=new User(username,"","", "",0);
-
-
-
+        this.seller=new User(sellerName,"","", "",0);
+        this.buyer = new User("","","", "",0);
     }
     public Lot(){}
 

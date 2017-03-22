@@ -35,7 +35,9 @@ public class LotService {
     }
 
     public void updateLot(Lot lot) {
-        lotRepository.save(lot );
+
+        lot.setBuyer(lotRepository.findOne(lot.getId()).getBuyer());
+        lotRepository.save(lot);
     }
 
 
