@@ -22,7 +22,7 @@ public class Lot {
     private String endDate;
 
     @ManyToOne
-    private User user;
+    private User seller;
 
     public String getId() {
         return id;
@@ -35,6 +35,7 @@ public class Lot {
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;
@@ -64,12 +65,12 @@ public class Lot {
         this.endDate = endDate;
     }
 
-    public User getUser() {
-        return user;
+    public User getSeller() {
+        return seller;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setSeller(User user) {
+        this.seller = user;
     }
 
     public Lot(String id, String name, String description, double startPrice, String endDate, String username) {
@@ -78,7 +79,7 @@ public class Lot {
         this.description = description;
         this.startPrice = startPrice;
         this.endDate = endDate;
-        this.user=new User(username,"","", "",0);
+        this.seller=new User(username,"","", "",0);
 
 
 
