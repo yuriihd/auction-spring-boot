@@ -21,6 +21,8 @@ public class Lot {
     private double price;
     private String endDate;
 
+    private boolean isReadyToBid = true;
+
     @ManyToOne
     private User seller;
 
@@ -28,30 +30,18 @@ public class Lot {
     @ManyToOne
     private User buyer;
 
+    public boolean isReadyToBid() {
+        return isReadyToBid;
+    }
+
+    public void setReadyToBid(boolean readyToBid) {
+        isReadyToBid = readyToBid;
+    }
+
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public double getPrice() {
         return price;
@@ -61,13 +51,6 @@ public class Lot {
         this.price = price;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
 
     public User getSeller() {
         return seller;

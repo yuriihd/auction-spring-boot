@@ -15,16 +15,27 @@ public class LotController {
     @Autowired
     private LotService lotService;
 
+
+    /*get all lots for one seller*/
     @RequestMapping("/users/{username}/lots")
-    public List<Lot> getAllLots(@PathVariable String username){
-        return lotService.getAllLots(username);
+    public List<Lot> getAllUserLots(@PathVariable String username){
+        return lotService.getAllUserLots(username);
     }
 
 
+    /*get all lots from DB*/
+    @RequestMapping("/lots")
+    public List<Lot> getAllLots(){
+        return lotService.getAllLots();
+    }
+
+
+    /*get one lot for one seller*/
     @RequestMapping("/users/{username}/lots/{id}")
     public Lot getLot(@PathVariable String id){
         return lotService.getLot(id);
     }
+
 
     @RequestMapping(method= RequestMethod.POST, value = "/users/{username}/lots")
     public void addLot(@RequestBody Lot lot, @PathVariable String username){

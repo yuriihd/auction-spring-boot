@@ -14,7 +14,7 @@ public class LotService {
     @Autowired
     private LotRepository lotRepository;
 
-    public List<Lot> getAllLots(String username){
+    public List<Lot> getAllUserLots(String username){
 
         List<Lot> lots = new ArrayList<>();
         lotRepository.findBySellerUsername(username)
@@ -22,6 +22,17 @@ public class LotService {
         return lots;
 
     }
+
+
+    public List<Lot> getAllLots(){
+
+        List<Lot> lots = new ArrayList<>();
+        lotRepository.findAll()
+                .forEach(lots::add);
+        return lots;
+
+    }
+
 
 
     public Lot getLot(String id){

@@ -18,12 +18,6 @@ public class BidController {
     @Autowired
     private BidService bidService;
 
-    /*
-    @RequestMapping("/users/{username}/lots")
-    public List<Lot> getAllLots(@PathVariable String username){
-        return lotService.getAllLots(username);
-    }*/
-
 
     @RequestMapping("/users/{username}/bids")
     public List<Lot> getAllBids(@PathVariable String username){
