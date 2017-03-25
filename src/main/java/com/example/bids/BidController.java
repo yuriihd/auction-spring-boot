@@ -31,7 +31,6 @@ public class BidController {
 
     @RequestMapping(method= RequestMethod.POST, value = "/users/{username}/bids/{amount}")
     public void addBids(@RequestBody Lot lot, @PathVariable String username, @PathVariable double amount){
-
         bidService.addBid(lot,username,amount);
     }
 

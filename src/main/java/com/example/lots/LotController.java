@@ -12,6 +12,8 @@ import java.util.List;
 @RestController
 public class LotController {
 
+
+
     @Autowired
     private LotService lotService;
 
@@ -28,6 +30,21 @@ public class LotController {
     public List<Lot> getAllLots(){
         return lotService.getAllLots();
     }
+
+    /*get all lots from DB in sorted by price*/
+    @RequestMapping("/lots/sort")
+    public List<Lot> getAllSortedLots(){
+        return lotService.getAllSortedLots();
+    }
+
+
+
+    /*get all lots from DB by topic*/
+    @RequestMapping("/lots/{topicName}")
+    public List<Lot> getAllLotsByTopic(@PathVariable String topicName){
+        return lotService.getAllLotsByTopic(topicName);
+    }
+
 
 
     /*get one lot for one seller*/

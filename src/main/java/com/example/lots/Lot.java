@@ -17,6 +17,7 @@ public class Lot {
     @Id
     private String id;
     private String name;
+    private String topic;
     private String description;
     private double price;
     private String endDate;
@@ -68,7 +69,7 @@ public class Lot {
         this.buyer = buyer;
     }
 
-    public Lot(String id, String name, String description, double price, String endDate,  String sellerName) {
+    public Lot(String id, String name, String description, double price, String endDate,  String sellerName, String topic) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -76,8 +77,23 @@ public class Lot {
         this.endDate = endDate;
         this.seller=new User(sellerName,"","", "",0);
         this.buyer = new User("","","", "",0);
+        this.topic = topic;
     }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
     public Lot(){}
 
+    public boolean hasBuyer(){
+        if(this.buyer!=null)
+            return true;
+        else return false;
+    }
 
 }

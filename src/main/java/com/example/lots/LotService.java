@@ -34,6 +34,29 @@ public class LotService {
     }
 
 
+    public List<Lot> getAllSortedLots(){
+
+        List<Lot> lots = new ArrayList<>();
+        lotRepository.findAll()
+                .forEach(lots::add);
+        lots.sort((Lot l1, Lot l2)
+                ->
+                Double.compare(l1.getPrice(),l2.getPrice())
+        );
+        return lots;
+
+    }
+
+    public List<Lot> getAllLotsByTopic(String topicName){
+        List<Lot> lots = new ArrayList<>();
+        lotRepository.findByTopic(topicName)
+                .forEach(lots::add);
+        return lots;
+    }
+
+
+
+
 
     public Lot getLot(String id){
 
@@ -55,5 +78,8 @@ public class LotService {
     public void deleteLot(String id) {
         lotRepository.delete(id);
     }
+
+
+
 
 }
