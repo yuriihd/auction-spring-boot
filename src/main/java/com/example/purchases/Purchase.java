@@ -1,5 +1,6 @@
-package com.example.lots;
+package com.example.purchases;
 
+import com.example.lots.Lot;
 import com.example.users.User;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Data
-public class Lot {
+public class Purchase {
     @Id
     private String id;
     private String name;
@@ -21,47 +22,35 @@ public class Lot {
     private String description;
     private double price;
     private String endDate;
+    private boolean IsPurchasePaid = false;
+    private String purchaseDate;
 
 
     @ManyToOne
     private User seller;
 
-
     @ManyToOne
     private User buyer;
 
+
+    public boolean isPurchasePaid() {
+        return IsPurchasePaid;
+    }
+
+    public void setPurchasePaid(boolean purchasePaid) {
+        IsPurchasePaid = purchasePaid;
+    }
 
     public String getId() {
         return id;
     }
 
-
-    public void setId(String id) {
-        this.id = id;
+    public String getPurchaseDate() {
+        return purchaseDate;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setPurchaseDate(String purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
     public double getPrice() {
@@ -71,6 +60,7 @@ public class Lot {
     public void setPrice(double price) {
         this.price = price;
     }
+
 
     public User getSeller() {
         return seller;
@@ -88,7 +78,21 @@ public class Lot {
         this.buyer = buyer;
     }
 
-    public Lot(String id, String name, String description, double price, String endDate,  String sellerName, String topic) {
+    public Purchase(){}
+
+    public Purchase(Lot lot){
+        this.id = lot.getId();
+        this.name = lot.getName();
+        this.description = lot.getDescription();
+        this.price = lot.getPrice();
+        this.endDate = lot.getEndDate();
+        this.seller=lot.getSeller();
+        this.buyer = lot.getBuyer();
+        this.topic = lot.getTopic();
+
+    }
+
+    public Purchase(String id, String name, String description, double price, String endDate,  String sellerName, String topic) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -106,8 +110,6 @@ public class Lot {
     public void setTopic(String topic) {
         this.topic = topic;
     }
-
-    public Lot(){}
 
     public boolean hasBuyer(){
         if(this.buyer!=null)

@@ -32,7 +32,6 @@ public class BidService {
             tempLot.setPrice(amount);
             lot.setSeller(lotRepository.findOne(lot.getId()).getSeller());
             lot.setBuyer(new User(username, "", "", "", 0));
-            lot.setReadyToBid(true);
             lotRepository.save(lot);
         }
 

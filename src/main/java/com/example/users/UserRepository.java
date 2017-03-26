@@ -1,7 +1,5 @@
 package com.example.users;
 
-
-import com.example.lots.Lot;
 import org.springframework.data.repository.CrudRepository;
 
 /**
