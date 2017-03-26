@@ -30,9 +30,18 @@ public class PurchaseService {
     }
 
 
+    public List<Purchase> getSellerPurchases(String username){
+
+        List<Purchase> purchases = new ArrayList<>();
+        purchaseRepository.findBySellerUsername(username)
+                .forEach(purchases::add);
+        return purchases;
+    }
+
+
     public void paymentPurchase(String username, String idPurchase){
         Purchase tempPurchase = purchaseRepository.findOne(idPurchase);
-        if(tempPurchase.isPurchasePaid()==false) {
+        if(tempPurchase.getStatus().equals("NOT PAID")) {
             User tempBuyerUser = userRepository.findOne(tempPurchase.getBuyer().getUsername());
             if (tempBuyerUser.getBalance() >= tempPurchase.getPrice()) {
                 tempBuyerUser.subtractMoney(tempPurchase.getPrice());
@@ -41,16 +50,11 @@ public class PurchaseService {
                 tempSellerUser.addMoney(tempPurchase.getPrice());
                 userRepository.save(tempSellerUser);
             }
-            tempPurchase.setPurchasePaid(true);
+            tempPurchase.setStatus("PAID");
+            purchaseRepository.save(tempPurchase);
         }
     }
 
 
-    public List<Purchase> getSellerPurchases(String username){
 
-        List<Purchase> purchases = new ArrayList<>();
-        purchaseRepository.findBySellerUsername(username)
-                .forEach(purchases::add);
-        return purchases;
-    }
 }

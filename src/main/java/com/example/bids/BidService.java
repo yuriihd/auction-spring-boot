@@ -3,6 +3,7 @@ package com.example.bids;
 import com.example.lots.Lot;
 import com.example.lots.LotRepository;
 import com.example.users.User;
+import com.example.users.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class BidService {
     @Autowired
     private LotRepository lotRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     public List<Lot> getAllBids(String username){
         List<Lot> lots = new ArrayList<>();
@@ -28,7 +32,8 @@ public class BidService {
     public void addBid(Lot lot, String username, double amount) {
 
         Lot tempLot = lotRepository.findOne(lot.getId());
-        if(tempLot.getPrice()< amount ) {
+        User user = userRepository.findOne(username);
+        if(user.getPenalty()==0 && tempLot.getPrice()< amount ) {
             tempLot.setPrice(amount);
             lot.setSeller(lotRepository.findOne(lot.getId()).getSeller());
             lot.setBuyer(new User(username, "", "", "", 0));

@@ -22,9 +22,16 @@ public class Purchase {
     private String description;
     private double price;
     private String endDate;
-    private boolean IsPurchasePaid = false;
     private String purchaseDate;
+    private String status = "NOT PAID";
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @ManyToOne
     private User seller;
@@ -33,13 +40,7 @@ public class Purchase {
     private User buyer;
 
 
-    public boolean isPurchasePaid() {
-        return IsPurchasePaid;
-    }
 
-    public void setPurchasePaid(boolean purchasePaid) {
-        IsPurchasePaid = purchasePaid;
-    }
 
     public String getId() {
         return id;

@@ -30,8 +30,12 @@ public class Scheduler {
     @Autowired
     private PurchaseRepository purchaseRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     /*Every day Removal of all lots ending on that day in 00:00 */
+    /* Add EndPaymentDay as throw 2 days*/
     @Scheduled(cron = "0 0 0 * * ?")
     public void deleteEndLots() {
         Date curTime = new Date();
@@ -41,12 +45,10 @@ public class Scheduler {
         List<Lot> lots = new ArrayList<>();
         lotRepository.findByEndDate(endDate)
                 .forEach(lots::add);
-
         lots.stream()
                 .peek((e)
                         -> {
                         Purchase purchase = new Purchase(e);
-                        /*добавить дату проверки оплаты в*/
                         Calendar cal = Calendar.getInstance();
                         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
                         String nowDate = sdf.format(cal.getTime());
@@ -57,6 +59,7 @@ public class Scheduler {
 
                                 Date ms = new Date(msdate+twoday);
                                 purchase.setPurchaseDate(sdf.format(ms));
+                               
                             } catch (ParseException e1) {
                                 e1.printStackTrace();
                             }
@@ -68,7 +71,27 @@ public class Scheduler {
 
     }
 
+    @Scheduled(cron = "0 0 0 * * ?")
     public void checkPurchases(){
+        System.out.println(1);
+        Date curTime = new Date();
+        DateFormat dtfrm = DateFormat.getDateInstance();
+        String endDate = dtfrm.format(curTime);
+        System.out.println(2);
+        List<Purchase> purchases = new ArrayList<>();
+        System.out.println(3);
+        purchaseRepository.findByPurchaseDate(endDate)
+                .forEach(purchases::add);
+        System.out.println(purchases.size()+"*");
+        for(Purchase purchase: purchases){
+            if(purchase.getStatus().equals("NOT PAID")){
+                purchase.setStatus("CLOSED");
+                purchase.getBuyer().addPenalty(0.2*purchase.getPrice());//Add penalty
+                userRepository.save(purchase.getBuyer());
+                purchaseRepository.save(purchase);
+            }
+        }
 
+        System.out.println("0000");
     }
 }

@@ -18,6 +18,7 @@ public class User {
     private String surname;
     private String email;
     private double balance;
+    private double penalty = 0;// 20% from unpaid lot
 
     public User(String username, String name, String surname, String email, double balance) {
         this.username = username;
@@ -30,6 +31,18 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+
+    public double getPenalty() {
+        return penalty;
+    }
+
+    public void setPenalty(double penalty) {
+        this.penalty = penalty;
+    }
+
+    public void addPenalty(double penalty) {
+        this.penalty += penalty;
     }
 
     public void setUsername(String username) {
