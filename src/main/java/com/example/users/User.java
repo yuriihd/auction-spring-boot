@@ -33,8 +33,8 @@ public class User {
         return username;
     }
 
-    public double getPenalty() {
-        return penalty;
+        public double getPenalty() {
+            return penalty;
     }
 
     public void setPenalty(double penalty) {

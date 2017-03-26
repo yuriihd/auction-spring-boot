@@ -15,6 +15,7 @@ public class PurchaseController {
     @Autowired
     PurchaseService purchaseService;
 
+
     @RequestMapping("/users/{username}/purchases")
     public List<Purchase> getBuyerPurchases(@PathVariable String username){
         return  purchaseService.getBuyerPurchases(username);

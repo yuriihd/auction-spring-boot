@@ -59,7 +59,7 @@ public class Scheduler {
 
                                 Date ms = new Date(msdate+twoday);
                                 purchase.setPurchaseDate(sdf.format(ms));
-                               
+
                             } catch (ParseException e1) {
                                 e1.printStackTrace();
                             }
