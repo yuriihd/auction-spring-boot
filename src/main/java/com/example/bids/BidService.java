@@ -26,7 +26,15 @@ public class BidService {
     }
 
     public void addBid(Lot lot, String username, double amount) {
-        (new Thread(new AddBidThread(lot,username,amount,this.lotRepository))).start();
+
+        Lot tempLot = lotRepository.findOne(lot.getId());
+        if(tempLot.getPrice()< amount ) {
+            tempLot.setPrice(amount);
+            lot.setSeller(lotRepository.findOne(lot.getId()).getSeller());
+            lot.setBuyer(new User(username, "", "", "", 0));
+            lot.setReadyToBid(true);
+            lotRepository.save(lot);
+        }
 
     }
 
@@ -36,10 +44,12 @@ public class BidService {
     }
 
     public void updateBid(Lot lot,  double amount) {
-        if(lotRepository.findOne(lot.getId()).getPrice()< amount ) {
-            lotRepository.findOne(lot.getId()).setPrice(amount);
-            lot.setSeller(lotRepository.findOne(lot.getId()).getSeller());
-            lot.setBuyer(lotRepository.findOne(lot.getId()).getBuyer());
+
+        Lot tempLot = lotRepository.findOne(lot.getId());
+        if(tempLot.getPrice()< amount ) {
+            tempLot.setPrice(amount);
+            lot.setSeller(tempLot.getSeller());
+            lot.setBuyer(tempLot.getBuyer());
             lotRepository.save(lot);
         }
     }
