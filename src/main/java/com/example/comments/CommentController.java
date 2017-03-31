@@ -32,7 +32,7 @@ public class CommentController {
 
     @RequestMapping(method= RequestMethod.POST, value = "/users/{fromWhom}/feedbacks/{toWhom}")
     public void addComment(@RequestBody String description, @PathVariable String fromWhom, @PathVariable String toWhom){
-        Comment comment = new Comment(description,new User(fromWhom,"","", "",0),new User(toWhom,"","", "",0));
+        Comment comment = new Comment(description,new User(fromWhom,"","","", "",0),new User(toWhom,"", "","", "",0));
         commentService.addComment(comment);
     }
 

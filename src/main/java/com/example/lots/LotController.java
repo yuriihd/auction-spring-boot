@@ -56,14 +56,14 @@ public class LotController {
 
     @RequestMapping(method= RequestMethod.POST, value = "/users/{username}/lots")
     public void addLot(@RequestBody Lot lot, @PathVariable String username){
-        lot.setSeller(new User(username,"","", "",0));
+        lot.setSeller(new User(username,"","","", "",0));
         lotService.addLot(lot);
     }
 
 
     @RequestMapping(method= RequestMethod.PUT, value = "/users/{username}/lots/{id}")
     public void updateLot(@RequestBody Lot lot, @PathVariable String username,@PathVariable String id){
-        lot.setSeller(new User(username,"","", "",0));
+        lot.setSeller(new User(username,"","","", "",0));
         lotService.updateLot(lot);
     }
 

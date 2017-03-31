@@ -36,7 +36,7 @@ public class BidService {
         if(user.getPenalty()==0 && tempLot.getPrice()< amount ) {
             tempLot.setPrice(amount);
             lot.setSeller(lotRepository.findById(lot.getId()).getSeller());
-            lot.setBuyer(new User(username, "", "", "", 0));
+            lot.setBuyer(new User(username,"", "", "", "", 0));
             lotRepository.save(lot);
         }
 

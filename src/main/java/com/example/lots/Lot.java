@@ -94,8 +94,8 @@ public class Lot {
         this.description = description;
         this.price = price;
         this.endDate = endDate;
-        this.seller=new User(sellerName,"","", "",0);
-        this.buyer = new User("","","", "",0);
+        this.seller=new User(sellerName,"","","", "",0);
+        this.buyer = new User("","","","", "",0);
         this.topic = topic;
     }
 
