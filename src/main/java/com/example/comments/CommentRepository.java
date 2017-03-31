@@ -11,4 +11,5 @@ public interface CommentRepository extends CrudRepository<Comment, String> {
 
     public List<Comment> findByFromWhomUsername (String username);
     public List<Comment> findByToWhomUsername (String username);
+    public Comment findById (long username);
 }

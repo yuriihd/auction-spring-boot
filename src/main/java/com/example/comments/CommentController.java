@@ -36,10 +36,6 @@ public class CommentController {
         commentService.addComment(comment);
     }
 
-    @RequestMapping("/users/{username}/feedbacks")
-    public List<Comment> getAllComments(@PathVariable String username){
-        return commentService.getAllComments();
-    }
 
     @RequestMapping("/feedbacks")
     public String getAll(){

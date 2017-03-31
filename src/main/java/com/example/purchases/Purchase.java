@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 @Data
 public class Purchase {
     @Id
-    private String id;
+    private long id;
     private String name;
     private String topic;
     private String description;
@@ -42,7 +42,7 @@ public class Purchase {
 
 
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
@@ -93,7 +93,7 @@ public class Purchase {
 
     }
 
-    public Purchase(String id, String name, String description, double price, String endDate,  String sellerName, String topic) {
+    public Purchase(long id, String name, String description, double price, String endDate,  String sellerName, String topic) {
         this.id = id;
         this.name = name;
         this.description = description;

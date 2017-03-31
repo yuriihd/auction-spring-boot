@@ -31,11 +31,11 @@ public class BidService {
 
     public void addBid(Lot lot, String username, double amount) {
 
-        Lot tempLot = lotRepository.findOne(lot.getId());
+        Lot tempLot = lotRepository.findById(lot.getId());
         User user = userRepository.findOne(username);
         if(user.getPenalty()==0 && tempLot.getPrice()< amount ) {
             tempLot.setPrice(amount);
-            lot.setSeller(lotRepository.findOne(lot.getId()).getSeller());
+            lot.setSeller(lotRepository.findById(lot.getId()).getSeller());
             lot.setBuyer(new User(username, "", "", "", 0));
             lotRepository.save(lot);
         }
@@ -49,7 +49,7 @@ public class BidService {
 
     public void updateBid(Lot lot,  double amount) {
 
-        Lot tempLot = lotRepository.findOne(lot.getId());
+        Lot tempLot = lotRepository.findById(lot.getId());
         if(tempLot.getPrice()< amount ) {
             tempLot.setPrice(amount);
             lot.setSeller(tempLot.getSeller());

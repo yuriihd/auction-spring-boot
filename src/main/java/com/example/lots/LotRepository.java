@@ -14,4 +14,5 @@ public interface LotRepository extends CrudRepository<Lot, String> {
     public List<Lot> findByBuyerUsername (String username);
     public List<Lot> findByTopic (String topic);
     public List<Lot> findByEndDate (String topic);
+    public Lot findById (Long Id);
 }

@@ -39,6 +39,4 @@ public class BidController {
         bidService.updateBid(lot,amount);
     }
 
-
-
 }

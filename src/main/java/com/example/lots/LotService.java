@@ -64,13 +64,14 @@ public class LotService {
     }
 
     public void addLot(Lot lot) {
+        lot.setId(lotRepository.count()+1);
 
         lotRepository.save(lot);
     }
 
     public void updateLot(Lot lot) {
 
-        lot.setBuyer(lotRepository.findOne(lot.getId()).getBuyer());
+        lot.setBuyer(lotRepository.findById(lot.getId()).getBuyer());
         lotRepository.save(lot);
     }
 
