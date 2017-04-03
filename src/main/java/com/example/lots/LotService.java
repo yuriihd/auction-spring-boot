@@ -64,7 +64,6 @@ public class LotService {
     }
 
     public void addLot(Lot lot) {
-        lot.setId(lotRepository.count()+1);
 
         lotRepository.save(lot);
     }
@@ -76,8 +75,8 @@ public class LotService {
     }
 
 
-    public void deleteLot(String id) {
-        lotRepository.delete(id);
+    public void deleteLot(Long id) {
+        lotRepository.deleteById(id);
     }
 
 

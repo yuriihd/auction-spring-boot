@@ -4,6 +4,7 @@ import com.example.users.User;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.text.SimpleDateFormat;
@@ -17,7 +18,8 @@ import java.util.Date;
 public class Comment {
 
     @Id
-    public String id;
+    @GeneratedValue
+    public Long id;
 
     public String description;
     public String dateTime;
@@ -37,18 +39,17 @@ public class Comment {
         Date curTime = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         this.dateTime = sdf.format(curTime);
-
         this.description = description;
         this.fromWhom = fromWhom;
         this.toWhom = toWhom;
-        this.id = dateTime+fromWhom.getUsername()+toWhom.getUsername();
+        this.id = 1l;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

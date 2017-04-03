@@ -1,11 +1,9 @@
 package com.example.lots;
 
 import com.example.users.User;
-import lombok.Data;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Created by Yurii on 21.03.2017.
@@ -13,9 +11,14 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Lot {
     @Id
-    private long id;
+    @GeneratedValue
+    private Long id;
     private String name;
     private String topic;
     private String description;
@@ -31,12 +34,12 @@ public class Lot {
     private User buyer;
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,25 +47,16 @@ public class Lot {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
 
     public double getPrice() {
         return price;
@@ -88,26 +82,10 @@ public class Lot {
         this.buyer = buyer;
     }
 
-    public Lot(long id, String name, String description, double price, String endDate,  String sellerName, String topic) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.endDate = endDate;
-        this.seller=new User(sellerName,"","","", "",0);
-        this.buyer = new User("","","","", "",0);
-        this.topic = topic;
-    }
-
     public String getTopic() {
         return topic;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-
-    public Lot(){}
 
     public boolean hasBuyer(){
         if(this.buyer!=null)

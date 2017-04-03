@@ -58,6 +58,7 @@ public class LotController {
     public void addLot(@RequestBody Lot lot, @PathVariable String username){
         lot.setSeller(new User(username,"","","", "",0));
         lotService.addLot(lot);
+
     }
 
 
@@ -68,7 +69,7 @@ public class LotController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/users/{username}/lots/{id}")
-    public void  deleteLot(@PathVariable String id){
+    public void  deleteLot(@PathVariable Long id){
         lotService.deleteLot(id);
     }
 

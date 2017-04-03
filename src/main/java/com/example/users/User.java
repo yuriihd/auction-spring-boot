@@ -3,6 +3,7 @@ package com.example.users;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -15,6 +16,9 @@ import javax.validation.constraints.Size;
 public class User {
 
     @Id
+    @GeneratedValue
+    private Long Id;
+
     @Size(min=3, max=20,
             message="Username must be between 3 and 20 characters long.")
     @Pattern(regexp="^[a-zA-Z0-9]+$",
