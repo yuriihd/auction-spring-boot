@@ -1,6 +1,8 @@
-package com.example.comments;
+package com.example.controller;
 
-import com.example.users.User;
+import com.example.service.CommentService;
+import com.example.model.Comment;
+import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

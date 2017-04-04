@@ -1,8 +1,10 @@
-package com.example.lots;
+package com.example.controller;
 
-import com.example.users.User;
+import com.example.model.Lot;
+import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.service.LotService;
 
 import java.util.List;
 

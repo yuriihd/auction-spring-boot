@@ -1,9 +1,9 @@
-package com.example.bids;
+package com.example.service;
 
-import com.example.lots.Lot;
-import com.example.lots.LotRepository;
-import com.example.users.User;
-import com.example.users.UserRepository;
+import com.example.model.Lot;
+import com.example.repository.LotRepository;
+import com.example.model.User;
+import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

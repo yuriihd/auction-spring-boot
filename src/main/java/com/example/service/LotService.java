@@ -1,5 +1,7 @@
-package com.example.lots;
+package com.example.service;
 
+import com.example.repository.LotRepository;
+import com.example.model.Lot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

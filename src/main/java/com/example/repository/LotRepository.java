@@ -1,8 +1,7 @@
-package com.example.lots;
+package com.example.repository;
 
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
+import com.example.model.Lot;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 

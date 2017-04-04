@@ -1,7 +1,4 @@
-package com.example.comments;
-
-import com.example.users.User;
-import lombok.Data;
+package com.example.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

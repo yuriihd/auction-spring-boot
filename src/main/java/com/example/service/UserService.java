@@ -1,8 +1,9 @@
-package com.example.users;
+package com.example.service;
 
-import com.example.lots.Lot;
+import com.example.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
-package com.example.purchases;
+package com.example.repository;
 
 
-import com.example.lots.Lot;
+import com.example.model.Purchase;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

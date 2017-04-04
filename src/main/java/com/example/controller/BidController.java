@@ -1,8 +1,7 @@
-package com.example.bids;
+package com.example.controller;
 
-import com.example.lots.Lot;
-import com.example.lots.LotService;
-import com.example.users.User;
+import com.example.service.BidService;
+import com.example.model.Lot;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

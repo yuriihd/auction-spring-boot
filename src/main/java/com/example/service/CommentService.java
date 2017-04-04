@@ -1,7 +1,9 @@
-package com.example.comments;
+package com.example.service;
 
+import com.example.model.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.repository.CommentRepository;
 
 import java.util.ArrayList;
 import java.util.List;

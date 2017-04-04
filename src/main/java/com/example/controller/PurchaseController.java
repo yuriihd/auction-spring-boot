@@ -1,8 +1,9 @@
-package com.example.purchases;
+package com.example.controller;
 
-import com.example.users.User;
+import com.example.model.Purchase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.service.PurchaseService;
 
 import java.util.List;
 

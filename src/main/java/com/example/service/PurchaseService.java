@@ -1,8 +1,9 @@
-package com.example.purchases;
+package com.example.service;
 
-import com.example.lots.Lot;
-import com.example.users.User;
-import com.example.users.UserRepository;
+import com.example.model.Purchase;
+import com.example.repository.PurchaseRepository;
+import com.example.model.User;
+import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

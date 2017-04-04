@@ -1,4 +1,4 @@
-package com.example.lots;
+package com.example;
 
 
  import java.text.DateFormat;
@@ -9,12 +9,12 @@ package com.example.lots;
  import java.util.Date;
  import java.util.List;
 
- import com.example.purchases.Purchase;
- import com.example.purchases.PurchaseRepository;
- import com.example.users.User;
- import com.example.users.UserRepository;
+ import com.example.model.Lot;
+ import com.example.model.Purchase;
+ import com.example.repository.LotRepository;
+ import com.example.repository.PurchaseRepository;
+ import com.example.repository.UserRepository;
  import org.springframework.beans.factory.annotation.Autowired;
- import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
  import org.springframework.scheduling.annotation.EnableScheduling;
  import org.springframework.scheduling.annotation.Scheduled;
  import org.springframework.stereotype.Service;

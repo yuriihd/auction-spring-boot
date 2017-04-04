@@ -1,7 +1,5 @@
-package com.example.purchases;
+package com.example.model;
 
-import com.example.lots.Lot;
-import com.example.users.User;
 import lombok.Data;
 
 import javax.persistence.Entity;

@@ -1,5 +1,6 @@
-package com.example.comments;
+package com.example.repository;
 
+import com.example.model.Comment;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,6 +1,5 @@
-package com.example.lots;
+package com.example.model;
 
-import com.example.users.User;
 import lombok.*;
 
 import javax.persistence.*;
