@@ -31,6 +31,7 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ResponseEntity<?> addUser(@RequestBody User user){
+        System.out.println(123);
         userService.addUser(user);
         securityService.autologin(user.getUsername(), user.getPassword());
         return new ResponseEntity<>(HttpStatus.OK);

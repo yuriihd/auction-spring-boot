@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.repository.LotRepository;
 import com.example.model.Lot;
+import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ import java.util.List;
 public class LotService {
     @Autowired
     private LotRepository lotRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public List<Lot> getAllUserLots(String username){
 
@@ -65,8 +69,9 @@ public class LotService {
         return lotRepository.findOne(id);
     }
 
-    public void addLot(Lot lot) {
+    public void addLot(Lot lot, String username) {
 
+        lot.setSeller(userRepository.findByUsername(username));
         lotRepository.save(lot);
     }
 

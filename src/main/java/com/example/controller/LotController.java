@@ -48,7 +48,6 @@ public class LotController {
     }
 
 
-
     /*get one lot for one seller*/
     @RequestMapping("/users/{username}/lots/{id}")
     public Lot getLot(@PathVariable String id){
@@ -58,9 +57,8 @@ public class LotController {
 
     @RequestMapping(method= RequestMethod.POST, value = "/users/{username}/lots")
     public void addLot(@RequestBody Lot lot, @PathVariable String username){
-        lot.setSeller(new User(username,"","","", "",0));
-        lotService.addLot(lot);
-
+        //lot.setSeller(new User(username,"","","", "",0));
+        lotService.addLot(lot, username);
     }
 
 
