@@ -31,7 +31,6 @@ public class UserController {
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ResponseEntity<?> addUser(@RequestBody User user){
-        System.out.println(123);
         userService.addUser(user);
         securityService.autologin(user.getUsername(), user.getPassword());
         return new ResponseEntity<>(HttpStatus.OK);
@@ -42,6 +41,14 @@ public class UserController {
         if (!ans)
             return new ResponseEntity<>("Password incorrect or user does not exist", HttpStatus.FORBIDDEN);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+
+
+    @RequestMapping(value = "/currentUser", method = RequestMethod.GET)
+    public ResponseEntity<?> getCurrentUser() {
+        User user = securityService.getAuthenticatedUser();
+        return new ResponseEntity<Object>(user, HttpStatus.OK);
     }
 
 

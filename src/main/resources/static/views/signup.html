@@ -1,0 +1,31 @@
+
+
+<div class="container" style="margin-top: 30px" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> Registration form</div>
+                <div class="panel-body">
+                    <form class="form-group-lg center-block">
+                        <label for="inputUsername" class="sr-only">username</label>
+                        <input type="username" id="inputUsername" class="form-control" placeholder="Username" ng-model="username">
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="password">
+                        <label for="inputName" class="sr-only">Name</label>
+                        <input type="text" id="inputName" class="form-control" placeholder="Name" ng-model="name">
+                        <label for="inputSurname" class="sr-only">Surname</label>
+                        <input type="text" id="inputSurname" class="form-control" placeholder="Surname" ng-model="surname">
+                        <label for="inputEmail" class="sr-only">E-mail</label>
+                        <input type="text" id="inputEmail" class="form-control" placeholder="Email" ng-model="email">
+
+                        <!--<div ng-if="!canProceed" class="alert alert-danger" role="alert">-->
+                            <!--<strong>Oh snap!</strong> Change a few things up and try submitting again.-->
+                        <!--</div>-->
+                        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="signUp();"> Sign in </button>
+                          </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,35 +1,41 @@
 /**
  * Created by Yurii on 05.04.2017.
  */
-var app = angular.module("Auction",[]);
 app.controller('loginController', ["$http", "$scope", "$location",
-    function ($http, $scope) {
+    function ($http, $scope,$location) {
 
-        var url = "http://localhost:8070";
+        var url = "http://localhost:8060";
 
+        $scope.id = undefined;
         $scope.username = undefined;
         $scope.password = undefined;
-        $scope.fullName = undefined;
+        $scope.name = undefined;
+        $scope.surname = undefined;
+        $scope.email = undefined;
 
+
+        $scope.canProceed = true;
 
         $scope.login = function () {
             return $http.post(url + '/login', {username: $scope.username, password: $scope.password}).then(function () {
-                $location.path("#/problems");
+                $location.path("/allLots");
             }).catch(function (){
                 $scope.canProceed = false;
             })
         };
 
         $scope.signUp = function () {
-            confirm("Ok");
+
             return $http.post(url + '/registration',
                 {
                     username: $scope.username,
                     password: $scope.password,
-                    name: $scope.fullName,
+                    name: $scope.name,
+                    surname: $scope.surname,
+                    email:$scope.email,
                 })
                 .then(function (response) {
-                    $location.path("#/problems");
+                    $location.path("/allLots");
                 }).catch(function (response){
                     $scope.canProceed = false;
                 })

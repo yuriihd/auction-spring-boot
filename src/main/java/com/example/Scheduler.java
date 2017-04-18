@@ -73,13 +73,10 @@ public class Scheduler {
 
     @Scheduled(cron = "0 0 0 * * ?")
     public void checkPurchases(){
-        System.out.println(1);
         Date curTime = new Date();
         DateFormat dtfrm = DateFormat.getDateInstance();
         String endDate = dtfrm.format(curTime);
-        System.out.println(2);
         List<Purchase> purchases = new ArrayList<>();
-        System.out.println(3);
         purchaseRepository.findByPurchaseDate(endDate)
                 .forEach(purchases::add);
         System.out.println(purchases.size()+"*");
@@ -91,7 +88,5 @@ public class Scheduler {
                 purchaseRepository.save(purchase);
             }
         }
-
-        System.out.println("0000");
     }
 }
