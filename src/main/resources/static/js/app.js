@@ -21,7 +21,7 @@ app.config(function($routeProvider){
             controller: 'lotController'
         })
         .when('/addLot', {
-            templateUrl: 'views/addLot.html',
+            templateUrl: 'views/addlot.html',
             controller: 'lotController'
         })
         // .when('/problems', {

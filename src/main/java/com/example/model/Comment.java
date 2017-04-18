@@ -6,12 +6,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Created by Yurii on 26.03.2017.
  */
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Comment {
 
     @Id
@@ -28,9 +32,6 @@ public class Comment {
     public User toWhom = new User();
 
 
-    public Comment(){
-
-    }
     public Comment(String description, User fromWhom, User toWhom) {
 
         Date curTime = new Date();
@@ -40,45 +41,5 @@ public class Comment {
         this.fromWhom = fromWhom;
         this.toWhom = toWhom;
         this.id = 1l;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
-    }
-
-    public User getFromWhom() {
-        return fromWhom;
-    }
-
-    public void setFromWhom(User fromWhom) {
-        this.fromWhom = fromWhom;
-    }
-
-    public User getToWhom() {
-        return toWhom;
-    }
-
-    public void setToWhom(User toWhom) {
-        this.toWhom = toWhom;
     }
 }

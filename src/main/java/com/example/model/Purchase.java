@@ -1,6 +1,7 @@
 package com.example.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Purchase {
     @Id
     private long id;
@@ -23,61 +25,11 @@ public class Purchase {
     private String purchaseDate;
     private String status = "NOT PAID";
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     @ManyToOne
     private User seller;
 
     @ManyToOne
     private User buyer;
-
-
-
-
-    public long getId() {
-        return id;
-    }
-
-    public String getPurchaseDate() {
-        return purchaseDate;
-    }
-
-    public void setPurchaseDate(String purchaseDate) {
-        this.purchaseDate = purchaseDate;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-
-    public User getSeller() {
-        return seller;
-    }
-
-    public void setSeller(User user) {
-        this.seller = user;
-    }
-
-    public User getBuyer() {
-        return buyer;
-    }
-
-    public void setBuyer(User buyer) {
-        this.buyer = buyer;
-    }
-
-    public Purchase(){}
 
     public Purchase(Lot lot){
         this.id = lot.getId();
@@ -99,14 +51,6 @@ public class Purchase {
         this.endDate = endDate;
         this.seller=new User(sellerName,"", "","", "",0);
         this.buyer = new User("","", "","", "",0);
-        this.topic = topic;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
         this.topic = topic;
     }
 

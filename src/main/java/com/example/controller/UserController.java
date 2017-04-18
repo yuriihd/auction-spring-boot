@@ -23,12 +23,6 @@ public class UserController {
     private SecurityService securityService;
 
 
-    /*@RequestMapping(method= RequestMethod.POST, value = "/users")
-    public void addUser(@RequestBody User user ){
-         userService.addUser(user);
-    }*/
-
-
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ResponseEntity<?> addUser(@RequestBody User user){
         userService.addUser(user);
@@ -44,13 +38,11 @@ public class UserController {
     }
 
 
-
     @RequestMapping(value = "/currentUser", method = RequestMethod.GET)
     public ResponseEntity<?> getCurrentUser() {
         User user = securityService.getAuthenticatedUser();
         return new ResponseEntity<Object>(user, HttpStatus.OK);
     }
-
 
     @RequestMapping("/users")
     public List<User> getAllUsers(){

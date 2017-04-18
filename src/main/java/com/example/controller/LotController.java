@@ -55,9 +55,8 @@ public class LotController {
     }
 
 
-    @RequestMapping(method= RequestMethod.POST, value = "/{username}/lots")
+    @RequestMapping(method= RequestMethod.POST, value = "/{username}/addLot")
     public void addLot(@RequestBody Lot lot, @PathVariable String username){
-        //lot.setSeller(new User(username,"","","", "",0));
         lotService.addLot(lot, username);
     }
 

@@ -1,6 +1,6 @@
 package com.example.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Data
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -44,67 +45,13 @@ public class User {
         this.email = email;
         this.balance = balance;
     }
-    public User(){}
 
-    public String getUsername() {
-        return username;
-    }
 
-    public double getPenalty() {
-            return penalty;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setPenalty(double penalty) {
-        this.penalty = penalty;
-    }
 
     public void addPenalty(double penalty) {
         this.penalty += penalty;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
 
     public void addMoney(double amount) {
         this.balance +=amount;
