@@ -24,6 +24,14 @@ app.config(function($routeProvider){
             templateUrl: 'views/addlot.html',
             controller: 'lotController'
         })
+        .when('/myLots', {
+            templateUrl: 'views/myLots.html',
+            controller: 'myLotController'
+        })
+        .when('/profile', {
+            templateUrl: 'views/profile.html',
+            controller: 'profileController'
+        })
         // .when('/problems', {
         //     templateUrl: 'views/problems.html',
         //     controller: 'problemController'

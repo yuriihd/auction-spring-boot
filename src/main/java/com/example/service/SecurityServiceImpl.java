@@ -63,9 +63,7 @@ public class SecurityServiceImpl implements SecurityService {
     public User getAuthenticatedUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userRepository.findByUsername(((org.springframework.security.core.userdetails.User)auth.getPrincipal()).getUsername());
-        user.setPassword("");
         return user;
     }
-
 
 }

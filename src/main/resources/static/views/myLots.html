@@ -1,0 +1,34 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> All lots on the site</div>
+                <div class="panel-body">
+                    <table class="table table-stripped">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>topic</th>
+                            <th>description</th>
+                            <th>price</th>
+                            <th>End date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat ="item in lots">
+                            <td>{{item.name}}</td>
+                            <td>{{item.topic}}</td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.endDate}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

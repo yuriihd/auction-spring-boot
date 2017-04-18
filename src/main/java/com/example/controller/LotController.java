@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.model.Lot;
 import com.example.model.User;
+import com.example.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.service.LotService;
@@ -18,12 +19,15 @@ public class LotController {
 
     @Autowired
     private LotService lotService;
+    @Autowired
+    private SecurityService securityService;
 
 
     /*get all lots for one seller*/
-    @RequestMapping("/users/{username}/lots")
-    public List<Lot> getAllUserLots(@PathVariable String username){
-        return lotService.getAllUserLots(username);
+    @RequestMapping("/myLots")
+    public List<Lot> getAllUserLots(){
+        User user = securityService.getAuthenticatedUser();
+        return lotService.getAllUserLots(user.getUsername());
     }
 
 
@@ -55,9 +59,10 @@ public class LotController {
     }
 
 
-    @RequestMapping(method= RequestMethod.POST, value = "/{username}/addLot")
-    public void addLot(@RequestBody Lot lot, @PathVariable String username){
-        lotService.addLot(lot, username);
+    @RequestMapping(method= RequestMethod.POST, value = "/addLot")
+    public void addLot(@RequestBody Lot lot){
+        User user = securityService.getAuthenticatedUser();
+        lotService.addLot(lot, user.getUsername());
     }
 
 

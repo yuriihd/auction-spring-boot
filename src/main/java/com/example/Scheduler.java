@@ -79,7 +79,6 @@ public class Scheduler {
         List<Purchase> purchases = new ArrayList<>();
         purchaseRepository.findByPurchaseDate(endDate)
                 .forEach(purchases::add);
-        System.out.println(purchases.size()+"*");
         for(Purchase purchase: purchases){
             if(purchase.getStatus().equals("NOT PAID")){
                 purchase.setStatus("CLOSED");

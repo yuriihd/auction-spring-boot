@@ -49,9 +49,10 @@ public class UserController {
         return  userService.getAllUsers();
     }
 
-    @RequestMapping("/users/{username}")
-    public User getUser(@PathVariable String username){
-        return  userService.getUser(username);
+    @RequestMapping("/users/user")
+    public User getUser(){
+        User user = securityService.getAuthenticatedUser();
+        return  userService.getUser(user.getUsername());
     }
 
 

@@ -30,16 +30,18 @@
                                 <a ng-href="#/home">Auction</a>
                             </li>
                             <li ng-if="showUser">
-                                <a ng-href="#/allLots">Lots</a>
+                                <a ng-href="#/allLots">All Lots</a>
+                            </li>
+                            <li ng-if="showUser">
+                                <a ng-href="#/myLots">My Lots</a>
                             </li>
                         </ul>
                 <ul class="nav navbar-nav navbar-right">
                         <li ng-if="showUser">
                             <div >
-                                <!--<a ng-href="#/profile"> <button class="dropbtn"> {{user.username}} </button> </a>-->
-                                <div>
-                                    <a ng-click="logOut()"> LogOut </a>
-                                </div>
+                                <a ng-href="#/profile"> <button class="dropbtn"> {{user.username}} </button> </a>
+                                <a ng-click="logOut()"> <button class="dropbtn"> LogOut </button> </a>
+
                             </div>
                         </li>
                         <li ng-if="!showUser"><a ng-href="#/login" > Login </a></li>
@@ -57,6 +59,7 @@
 <script src="js/app.js"></script>
 <script type="text/javascript" src = "js/controllers/LotController.js"></script>
 <script type="text/javascript" src = "js/controllers/LoginController.js"></script>
-
+<script type="text/javascript" src="js/controllers/MyLotController.js"></script>
+<script type="text/javascript" src="js/controllers/ProfileController.js"></script>
 </body>
 </html>

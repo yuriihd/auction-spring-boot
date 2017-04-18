@@ -30,13 +30,7 @@ app.controller('lotController', function ($rootScope, $scope, $location,$http) {
 
         $scope.addLot = function () {
 
-            /*Need to know current username : */
-            $http.get(url + '/currentUser').then(function (response) {
-                console.log(response);
-                $scope.showUser = true;
-                $scope.user = response.data;
-            });
-            return $http.post(url+'/'+$scope.user.username+'/addLot',
+            return $http.post(url+'/addLot',
                 {
                 name: $scope.name,
                 topic: $scope.topic,
@@ -45,7 +39,7 @@ app.controller('lotController', function ($rootScope, $scope, $location,$http) {
                 endDate : $scope.endDate
                 })
                 .then(function (response) {
-                $location.path("/allLots");
+                $location.path("/myLots");
             }).catch(function (response) {
                 $scope.canProceed = false;
             })
