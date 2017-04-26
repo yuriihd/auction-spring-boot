@@ -1,16 +1,31 @@
 <div class="row center-block">
     <div class="text-right"><a href="#/addLot"><button type="button" class="btn btn-lg btn-primary"> Add Lot </button></a></div>
-    <div class="navbar-form nav-tabs text-right"><input class="form-control glyphicon-search" ng-model="searchable" type="text" placeholder="search"><button class="btn btn-sm btn-primary" ng-click="search(searchable)">search</button></div>
+    <div class="navbar-form nav-tabs text-right"><input class="form-control glyphicon-search" ng-model="searchable" type="text" placeholder="search"><button class="btn btn-sm btn-primary bth-search" ng-click="search(searchable)">search</button></div>
     <!--<h1>{{message}}</h1>-->
     <div ng-repeat="lot in lots" class="col-md-6 col-lg-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <a ng-href="#/lots/{{lot.id}}" ng-click="setLot(lot)"><h2 class="panelText"> {{ lot.name }}</h2></a>
+        <div class="panel panel-primary ">
+            <div class="panel-heading ">
+                <a ng-href="#/lots/{{lot.id}}" ng-click="setLot(lot)"><h2 class="panelText text-center"> {{ lot.name }}</h2></a>
+
             </div>
             <div class="panel-body">
 
-                <p> End date: {{ lot.endDate }} </p>
-                <p> Price : {{ lot.price }} </p>
+                <table class="table table-stripped">
+
+                    <tbody>
+                    <tr>
+                        <td>The end date</td>
+                        <td>{{ lot.endDate }}</td>
+
+                    </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td>{{ lot.price }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-lg btn-primary btn-black panelText" > Buy </button>
+
             </div>
         </div>
     </div>

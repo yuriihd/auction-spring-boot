@@ -14,20 +14,20 @@
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>-->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <!--<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">-->
-    <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
 <div class="container" ng-controller="MainController">
     <nav class="navbar navbar-default">
-        <div class="menu">
+        <div>
                     <div class="navbar-header">
                         <a class="navbar-brand" ng-href="#/"></a>
                     </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li >
-                                <a ng-href="#/home">Auction</a>
+            <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav link">
+                            <li>
+                                <a  ng-href="#/home">Auction</a>
                             </li>
                             <li ng-if="showUser">
                                 <a ng-href="#/allLots">All Lots</a>
@@ -37,9 +37,13 @@
                             </li>
                         </ul>
                 <ul class="nav navbar-nav navbar-right">
+
+                    <li ng-if="showUser">
+                        <a ng-href="#/profile"> {{user.username}}  </a>
+                    </li>
                         <li ng-if="showUser">
                             <div >
-                                <a ng-href="#/profile"> <button class="dropbtn"> {{user.username}} </button> </a>
+
                                 <a ng-click="logOut()"> <button class="dropbtn"> LogOut </button> </a>
 
                             </div>
