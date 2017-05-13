@@ -3,6 +3,12 @@ body{
     background-attachment: fixed;
 }
 
+/*.promo-photo{*/
+    /*background: url(../images/img_head.jpg);*/
+    /*height:110px;*/
+/*}*/
+
+
 /*Buttons*/
 .btn-sign-up{
     display: inline-block;

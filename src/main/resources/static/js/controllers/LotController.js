@@ -44,5 +44,20 @@ app.controller('lotController', function ($rootScope, $scope, $location,$http) {
                 $scope.canProceed = false;
             })
         };
+
+
+
+    $scope.search = function (searchable) {
+
+        $http.get(url+'/lots/'+searchable).success(function (data) {
+            $scope.lots=data;
+        })
+
+    };
+
+
+
+
+
     });
 

@@ -1,11 +1,20 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="../images/img_choice.jpg" class="img-responsive">
+        </div>
+    </div>
+</div>
+
 <div class="row center-block">
-    <div class="text-right"><a href="#/addLot"><button type="button" class="btn btn-lg btn-primary"> Add Lot </button></a></div>
+    <div class="col-md-6 col-lg-6" ><a href="#/addLot"><button type="button" class="btn btn-lg btn-primary"> Add Lot </button></a></div>
     <div class="navbar-form nav-tabs text-right"><input class="form-control glyphicon-search" ng-model="searchable" type="text" placeholder="search"><button class="btn btn-sm btn-primary bth-search" ng-click="search(searchable)">search</button></div>
     <div ng-repeat="lot in lots" class="col-md-6 col-lg-6">
         <div class="panel panel-primary ">
             <div class="panel-heading ">
                 <a ng-href="#/lots/{{lot.id}}" ng-click="setLot(lot)"><h2 class="panelText text-center"> {{ lot.name }}</h2></a>
-
             </div>
             <div class="panel-body">
 
