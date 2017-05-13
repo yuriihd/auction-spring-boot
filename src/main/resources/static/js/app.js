@@ -55,7 +55,7 @@ app.config(function($routeProvider){
         .otherwise(
             { redirectTo: '/home'}
         );
-}).controller("MainController", ['$scope','$http', function($scope, $http) {
+}).controller("MainController", ['$scope','$http',"$location", function($scope, $http,$location) {
     var url = "http://localhost:8060";
 
 
