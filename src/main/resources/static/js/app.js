@@ -69,8 +69,6 @@ app.config(function($routeProvider){
     });
 
 
-
-
     $scope.logOut = function () {
         $http.post(url + '/logout').then(function (response) {
             $scope.showUser = false;

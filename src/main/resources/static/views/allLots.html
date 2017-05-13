@@ -1,7 +1,6 @@
 <div class="row center-block">
     <div class="text-right"><a href="#/addLot"><button type="button" class="btn btn-lg btn-primary"> Add Lot </button></a></div>
     <div class="navbar-form nav-tabs text-right"><input class="form-control glyphicon-search" ng-model="searchable" type="text" placeholder="search"><button class="btn btn-sm btn-primary bth-search" ng-click="search(searchable)">search</button></div>
-    <!--<h1>{{message}}</h1>-->
     <div ng-repeat="lot in lots" class="col-md-6 col-lg-6">
         <div class="panel panel-primary ">
             <div class="panel-heading ">
@@ -24,7 +23,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-lg btn-primary btn-black panelText" > Buy </button>
+                <a ng-href="#/lots/buy/{{lot.id}}" ng-click="buyLot({{lot.id}})"><button type="button" class="btn btn-lg btn-primary btn-black panelText" > Bid </button></a>
 
             </div>
         </div>

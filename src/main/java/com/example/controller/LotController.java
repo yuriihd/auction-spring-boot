@@ -53,7 +53,7 @@ public class LotController {
 
 
     /*get one lot for one seller*/
-    @RequestMapping("/users/{username}/lots/{id}")
+    @RequestMapping("myLots/{id}")
     public Lot getLot(@PathVariable String id){
         return lotService.getLot(id);
     }
@@ -66,13 +66,13 @@ public class LotController {
     }
 
 
-    @RequestMapping(method= RequestMethod.PUT, value = "/users/{username}/lots/{id}")
+    @RequestMapping(method= RequestMethod.PUT, value = "/lots/{id}")
     public void updateLot(@RequestBody Lot lot, @PathVariable String username,@PathVariable String id){
         lot.setSeller(new User(username,"","","", "",0));
         lotService.updateLot(lot);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/users/{username}/lots/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/lots/{id}")
     public void  deleteLot(@PathVariable Long id){
         lotService.deleteLot(id);
     }

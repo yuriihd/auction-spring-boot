@@ -43,32 +43,6 @@ app.controller('lotController', function ($rootScope, $scope, $location,$http) {
             }).catch(function (response) {
                 $scope.canProceed = false;
             })
-            };
-
-
-
-        // $scope.editMode = false;
-        // $scope.searchable = undefined;
-        //
-        // $scope.search = function (searchable) {
-        //     problemService.searchForTask(searchable).then(function (response) {
-        //             $scope.tasks = response.data;
-        //             if($scope.tasks.length == 0)
-        //                 $scope.message = "EMPTY";
-        //         },
-        //         function () {
-        //             problemService.getTasks().then(function (response){
-        //                 $scope.tasks = response.data;
-        //             });
-        //         })
-        // };
-        //
-        // $scope.updateTask = function (task) {
-        //     problemService.updateTask(task.id, task.name, task.level, task.maxScore, task.description);
-        // };
-        //
-        // $scope.changeEditMode = function () {
-        //     $scope.editMode = !$scope.editMode;
-        // }
+        };
     });
 
