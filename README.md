@@ -2,9 +2,8 @@
 Simple web aplication simulating auction.
 ## Notable Technologies
 - SpringBoot 
-- Spring JPA
+- Spring Data
 - Spring Security
-- DataBase
 - HTML (bootstrap)
 - CSS
 - JS(AngularJS)
